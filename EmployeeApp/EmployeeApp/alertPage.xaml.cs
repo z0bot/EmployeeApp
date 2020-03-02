@@ -11,5 +11,14 @@ namespace EmployeeApp
         {
             InitializeComponent();
         }
+        protected override bool OnBackButtonPressed()
+        {
+            DisplayAlert("Back Button Error!", "If you want to exit, you must log out.", "Ok");
+            return true;
+        }
+        void Tables_Clicked(System.Object sender, System.EventArgs e)
+        {
+            //WORKING HERE
+        }
     }
 }
