@@ -18,7 +18,7 @@ namespace EmployeeApp
         }
         void Tables_Clicked(System.Object sender, System.EventArgs e)
         {
-            //WORKING HERE
+            Navigation.PushAsync(new TablePage());
         }
     }
 }
