@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace EmployeeApp
+namespace EmployeeApp.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TablePage : ContentPage
+    public partial class Page1 : ContentPage
     {
-        public TablePage()
+        public Page1()
         {
             InitializeComponent();
         }

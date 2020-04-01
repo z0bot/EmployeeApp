@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using EmployeeApp.Pages;
+using EmployeeApp.Models;
 
 namespace EmployeeApp
 {

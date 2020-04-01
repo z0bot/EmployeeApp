@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="EmployeeApp.MainPage"
+             x:Class="EmployeeApp.Pages.MainPage"
              BackgroundImageSource="backGroundemp.png"
              NavigationPage.HasNavigationBar="false">
 <Grid>
@@ -42,7 +42,7 @@
                                 HorizontalTextAlignment="Center"
                                 x:Name="lblLoginSubTitle"
                                 FontSize="Small"
-                                Text="THESHORTEST PATH TO A GOOD JOB"/>
+                                Text="THE SHORTEST PATH TO A GREAT CAREER"/>
                            
                         </StackLayout>
                     </Frame.Content> 
@@ -57,26 +57,34 @@
             Grid.ColumnSpan="1">
         
         </StackLayout>
-    <StackLayout
+        <StackLayout
         HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand"
-            Grid.Row="6"
+            Grid.Row="4"
             Grid.RowSpan="2"
             Grid.Column="0"
             Grid.ColumnSpan="3">
-         <Entry
+            <Entry
              HorizontalOptions="Center"
             HorizontalTextAlignment="Center"
             x:Name="uName" Placeholder="  User Name  "
             PlaceholderColor="White" BackgroundColor="Black"
             TextColor="White"/>
-          <Entry
+            <Entry
               HorizontalOptions="Center"
             HorizontalTextAlignment="Center"
               x:Name="pWord" IsPassword="True" Placeholder="   Password   "
               PlaceholderColor="White" BackgroundColor="Black"
               TextColor="White"/>
-        <Button Text="Log In"
+        </StackLayout>
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+        VerticalOptions="End"
+           Grid.Row="6"
+           Grid.RowSpan="1"
+           Grid.Column="0"
+           Grid.ColumnSpan="3">
+            <Button Text="Log In"
                 x:Name="LogIn"
                 Clicked="Button_Clicked"
                 BackgroundColor="#24BF87"
