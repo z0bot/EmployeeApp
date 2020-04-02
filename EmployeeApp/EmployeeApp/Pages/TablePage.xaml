@@ -61,102 +61,39 @@
             </Button>
 
         </StackLayout>
-        <StackLayout
-           HorizontalOptions="FillAndExpand"
-        VerticalOptions="End"
-           Grid.Row="1"
-           Grid.RowSpan="4"
-           Grid.Column="0"
-           Grid.ColumnSpan="3">
+        <StackLayout 
+            x:Name="tableLayout">
+            <ListView
+                  x:Name="uxtableView"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="CenterAndExpand"
+                  Margin="40,80,40,70"
+                  HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <StackLayout
+                                          x:Name="tableViewLayout"
+                                          Grid.Row="0"
+                                          Orientation="Horizontal">
+                                    <Label
+                                                x:Name="uxtableName"
+                                                FontSize="Medium"
+                                                Text="{Binding Name}"/>
+                                  
+                                </StackLayout>
+                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-            <ScrollView>
-                <StackLayout>
-                    <Button 
-                        Margin="10"
-                        x:Name="Table1"
-                        Text="Table 1"
-                        BackgroundColor="Blue"       
-                        TextColor="White"
-                        Clicked="Table1Clicked"
-                        ></Button>
-
-                    <Button 
-                        Margin="10"
-                        x:Name="Table2"
-                        Text="Table 2"
-                        BackgroundColor="Gray"
-                        TextColor="Black"
-                        Clicked="Table2Clicked"
-                        ></Button>
-                    <Button 
-                        Margin="10"
-                        x:Name="Table3"
-                        Text="Table 3"
-                        BackgroundColor="Gray"
-                        TextColor="Black"
-                        Clicked="Table2Clicked"
-                        ></Button>
-                    <Button 
-                        Margin="10"
-                        x:Name="Table4"
-                        Text="Table 4"
-                        BackgroundColor="Gray"
-                        TextColor="Black"
-                        Clicked="Table2Clicked"
-                        ></Button>
-                    <Button 
-                        Margin="10"
-                        x:Name="Table5"
-                        Text="Table 5"
-                        BackgroundColor="Gray"
-                        TextColor="Black"
-                        Clicked="Table2Clicked"
-                        ></Button>
-                    <Button 
-                        Margin="10"
-                        x:Name="Table6"
-                        Text="Table 6"
-                        BackgroundColor="Gray"
-                        TextColor="Black"
-                        Clicked="Table2Clicked"
-                        ></Button>
-                    <Button 
-                        Margin="10"
-                        x:Name="Table7"
-                        Text="Table 7"
-                        BackgroundColor="Gray"
-                        TextColor="Black"
-                        Clicked="Table2Clicked"
-                        ></Button>
-                    <Button 
-                        Margin="10"
-                        x:Name="Table8"
-                        Text="Table 8"
-                        BackgroundColor="Gray"
-                        TextColor="Black"
-                        Clicked="Table2Clicked"
-                        ></Button>
-                    <Button 
-                        Margin="10"
-                        x:Name="Table9"
-                        Text="Table 9"
-                        BackgroundColor="Gray"
-                        TextColor="Black"
-                        Clicked="Table2Clicked"
-                        ></Button>
-                    <Button 
-                        Margin="10"
-                        x:Name="Table10"
-                        Text="Table 10"
-                        BackgroundColor="Gray"
-                        TextColor="Black"
-                        Clicked="Table2Clicked"
-                        ></Button>
-                   
-
-                </StackLayout>
-            </ScrollView>
-            
         </StackLayout>
 
     </Grid>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EmployeeApp.Models
 {
-    class User : RealmObject
+    class EmpUser : RealmObject
     {
         
         [PrimaryKey]
