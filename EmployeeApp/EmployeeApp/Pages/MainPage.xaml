@@ -61,21 +61,34 @@
         HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand"
             Grid.Row="4"
-            Grid.RowSpan="2"
+            Grid.RowSpan="3"
             Grid.Column="0"
             Grid.ColumnSpan="3">
             <Entry
              HorizontalOptions="Center"
             HorizontalTextAlignment="Center"
-            x:Name="uName" Placeholder="  User Name  "
+            x:Name="uName" Placeholder="User Name            "
             PlaceholderColor="White" BackgroundColor="Black"
             TextColor="White"/>
             <Entry
               HorizontalOptions="Center"
             HorizontalTextAlignment="Center"
-              x:Name="pWord" IsPassword="True" Placeholder="   Password   "
+              x:Name="pWord" IsPassword="True" Placeholder="Password              "
               PlaceholderColor="White" BackgroundColor="Black"
               TextColor="White"/>
+            <Picker
+                x:Name="tablePicker" Title="Assigned Tables: " HorizontalOptions="Center"
+                 BackgroundColor="Black" TextColor="White" TitleColor="White">
+                <Picker.ItemsSource>
+                     <x:Array Type="{x:Type x:String}">
+                         <x:String>Tables 1-10</x:String>
+                         <x:String>Tables 11-20</x:String>
+                     </x:Array>
+                </Picker.ItemsSource>
+                    
+            </Picker>
+            
+            
         </StackLayout>
         <StackLayout
             HorizontalOptions="FillAndExpand"

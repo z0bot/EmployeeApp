@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using EmployeeApp.Models;
 
 
 namespace EmployeeApp.Pages
@@ -27,13 +28,10 @@ namespace EmployeeApp.Pages
                 return;
             
         }
-       void Table1Clicked(System.Object sender, System.EventArgs e)
+        public void DisplayOrder()
         {
-          
+            uxtableView.ItemsSource = RealmManager.All<TableList>().FirstOrDefault().tables;
         }
-        void Table2Clicked(System.Object sender, System.EventArgs e)
-        {
 
-        }
     }
 }

@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using System.Windows;
 using Realms;
 using EmployeeApp.Models;
+using EmployeeApp.Models.ServiceRequests;
+
 
 namespace EmployeeApp.Pages
 {
@@ -31,17 +33,38 @@ namespace EmployeeApp.Pages
             
             if (uName.Text == null || pWord.Text == null)
             {
-                DisplayAlert("Login Error", "User ID and Password fields must not be blank", "Ok");
+                DisplayAlert("Login Error", "User ID and Password fields must not be blank.", "Ok");
               
+            }
+            else if(tablePicker.SelectedIndex==-1)
+            {
+                DisplayAlert("Login Error", "You must choose your tables for this shift.", "Ok");
+
             }
             else
             {
-                User currentUser = new User
+                //if(pull username from DB; and check password match else)
+                //DisplayAlert("Login Error", "The username and password combination does not match", "Ok");
+
+
+
+                EmpUser currentUser = new EmpUser
                 {
                    UserName = uName.Text,
-                    Password = pWord.Text,
+                   Password = pWord.Text,
                  };
-                RealmManager.AddOrUpdate<User>(currentUser);
+                RealmManager.AddOrUpdate<EmpUser>(currentUser);
+                var validSendGetTableRequest = GetTableRequest.SendGetTableRequest();
+                if(tablePicker.SelectedIndex == 0)
+                {
+                    //UPDATE DB with user for tables 1-10
+                    //GET tables from DB with user == this user
+                }
+                else
+                {
+                    //UPDATE DB with user for tables 11-20
+                    //GET tables from DB with user == this user
+                }
                 Navigation.PushAsync(new alertPage());
             }
 
