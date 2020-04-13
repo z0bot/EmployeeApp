@@ -19,6 +19,7 @@ namespace EmployeeApp.Pages
         }
         void Tables_Clicked(System.Object sender, System.EventArgs e)
         {
+           
             Navigation.PushAsync(new TablePage());
         }
 

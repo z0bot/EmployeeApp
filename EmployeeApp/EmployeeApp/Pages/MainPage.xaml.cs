@@ -29,19 +29,24 @@ namespace EmployeeApp.Pages
         void Button_Clicked(System.Object sender, System.EventArgs e)
         {
             
-            if (uName.Text == null || pWord.Text == null)
+            if (uName.Text == null || pWord.Text == null || tableSelector.SelectedIndex==-1)
             {
-                DisplayAlert("Login Error", "User ID and Password fields must not be blank", "Ok");
+                DisplayAlert("Login Error", "User ID, Password fields and Section must not be blank", "Ok");
               
             }
             else
             {
-                User currentUser = new User
+                EmpUser currentUser = new EmpUser
                 {
                    UserName = uName.Text,
                     Password = pWord.Text,
                  };
-                RealmManager.AddOrUpdate<User>(currentUser);
+
+                MyGlobals.MySection = tableSelector.SelectedIndex;
+                RealmManager.RemoveAll<EmpUser>();
+                RealmManager.RemoveAll<Order>();
+                RealmManager.RemoveAll<Table>();
+                RealmManager.AddOrUpdate<EmpUser>(currentUser);
                 Navigation.PushAsync(new alertPage());
             }
 
