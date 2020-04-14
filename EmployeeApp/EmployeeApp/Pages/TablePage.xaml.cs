@@ -24,8 +24,7 @@ namespace EmployeeApp.Pages
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var myList = new List<Table>(); //your list here
-            int checker =1;
+           // var myList = new List<Table>(); //your list here
             
             
             TableButts.Children.Clear(); //just in case so you can call this code several times np..
@@ -87,13 +86,21 @@ namespace EmployeeApp.Pages
 
         async void LogOut_Clicked(System.Object sender, System.EventArgs e)
         {
-          bool result1 = await DisplayAlert("Log Out?","Are you sure you want to log out?", "Yes", "No");
+            bool result1 = await DisplayAlert("Log Out?", "Are you sure you want to log out?", "Yes", "No");
             if (result1 == true)
-               await Navigation.PushAsync(new MainPage());
+            {
+                var myList = new List<Table>();
+                myList = RealmManager.All<TableList>().FirstOrDefault().tables.ToList();
+                for (int i = 0; i < 10; i++)
+                {
+                    var sent = await SendUserToTable.SendUserRequest(myList[i]._id, null);
+                }
+                await Navigation.PushAsync(new MainPage());
+            }
             else
                 return;
-            
+
         }
-      
+
     }
 }

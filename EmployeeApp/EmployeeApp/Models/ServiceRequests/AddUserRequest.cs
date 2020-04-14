@@ -13,7 +13,6 @@ namespace EmployeeApp.Models.ServiceRequests
     {
         public override string Url => "https://dijkstras-steakhouse-restapi.herokuapp.com/user/signup";
         public override HttpMethod Method => HttpMethod.Post;
-        public override Dictionary<string, string> Headers => null;
         public User Body;
 
         public AddUserRequest(string firstName, string lastName, string email, string password, string birthday)

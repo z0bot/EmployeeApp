@@ -7,7 +7,8 @@ using Realms;
 namespace EmployeeApp.Models
 {
     class Table : RealmObject
-    {
+    {   
+
         [PrimaryKey]
         public string _id { get; set; }
 

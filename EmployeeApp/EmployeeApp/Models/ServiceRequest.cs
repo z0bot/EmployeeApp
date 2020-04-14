@@ -8,6 +8,6 @@ namespace EmployeeApp.Models
     {
         public abstract string Url { get; }
         public abstract HttpMethod Method { get; }
-        public abstract Dictionary<string, string> Headers { get; }
+       
     }
 }

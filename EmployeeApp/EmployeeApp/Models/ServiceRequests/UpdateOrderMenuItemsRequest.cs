@@ -15,7 +15,6 @@ namespace EmployeeApp.Models.ServiceRequests
         //the type of request
         public override HttpMethod Method => HttpMethod.Put;
         //headers if we ever need them
-        public override Dictionary<string, string> Headers => null;
 
         public IList<UpdaterObject> Body;
 

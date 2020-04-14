@@ -10,7 +10,6 @@ namespace EmployeeApp.Models.ServiceRequests
     {
         public override string Url => "https://dijkstras-steakhouse-restapi.herokuapp.com/user/authentication";
         public override HttpMethod Method => HttpMethod.Post;
-        public override Dictionary<string, string> Headers => null;
         public UserAuthenticationBody Body;
 
         public UserAuthenticationRequest(string email, string password)

@@ -68,14 +68,14 @@ namespace EmployeeApp
             var url = (urlParams == null) ? serviceRequest.Url : AddURLParams(serviceRequest.Url, urlParams); //if there are URL params >> add them to url
             var httpRequestMessage = new HttpRequestMessage(serviceRequest.Method, url);
 
-            var customHeaders = serviceRequest.Headers;
+           /* var customHeaders = serviceRequest.Headers;
             if (customHeaders != null)  //add custom headers to the request message
             {
                 foreach (KeyValuePair<string, string> entry in customHeaders)
                 {
                     httpRequestMessage.Headers.Add(entry.Key, entry.Value);
                 }
-            }
+            }*/
             
             if (body != null)
             {
