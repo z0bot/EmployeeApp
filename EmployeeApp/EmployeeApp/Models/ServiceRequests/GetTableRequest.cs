@@ -47,18 +47,7 @@ namespace EmployeeApp.Models.ServiceRequests
                 RealmManager.RemoveAll<Table>();
                 //add the response into the local database
                 RealmManager.AddOrUpdate<Table>(response);
-                newOrder = RealmManager.All<Table>().FirstOrDefault().order_id;
-                Random rand = new Random();
-                for (int i = 0; i < ((Order)newOrder).menuItems.Count(); ++i)
-                {
-                    ((Order)newOrder).menuItems[i].newID = rand.Next(0, 1000000000).ToString();
-                    while (RealmManager.Find<OrderItem>((((Order)newOrder).menuItems[i].newID)) != null)
-                    {
-                        ((Order)newOrder).menuItems[i].newID = rand.Next(0, 1000000000).ToString();
-                    }
-                }
-                RealmManager.AddOrUpdate<Order>(newOrder); 
-
+              
                 //call succeeded
                 return true;
             }

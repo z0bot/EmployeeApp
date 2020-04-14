@@ -172,16 +172,18 @@ namespace EmployeeApp.Pages
         {
             
             
-           //await GetOrderRequest.SendGetOrderRequest(RealmManager.All<Order>().FirstOrDefault()._id);
+           await GetOrderRequest.SendGetOrderRequest(RealmManager.All<Order>().FirstOrDefault()._id);
 
             // Fetch most recent version of the order
 
             //await GetOrderRequest.SendGetOrderRequest(RealmManager.All<Table>().FirstOrDefault().order_id._id);
 
-            await GetTableRequest.SendGetTableRequest(MyGlobals.workingTable);
+            //  await GetTableRequest.SendGetTableRequest(MyGlobals.workingTable);
 
+            var ihatethis = new List<OrderItem>();
+            ihatethis = RealmManager.All<Order>().FirstOrDefault().menuItems.ToList();
 
-            menuFoodItemsView.ItemsSource = RealmManager.All<Order>().FirstOrDefault().menuItems.ToList();
+            menuFoodItemsView.ItemsSource = ihatethis;
 
             if (RealmManager.All<Order>().FirstOrDefault().send_to_kitchen)
             {
