@@ -64,9 +64,24 @@
 
         </StackLayout>
 
+        <StackLayout
+           HorizontalOptions="Center"
+            VerticalOptions="Start"
+           Grid.Row="1"
+           Grid.RowSpan="4"
+           Grid.Column="0"
+           Grid.ColumnSpan="3">
 
-        
-        
+            <ScrollView >
+                <StackLayout x:Name="AlertButts"/>
+            </ScrollView>
+
+
+
+
+        </StackLayout>
+
+
 
 
         <StackLayout
@@ -75,19 +90,16 @@
            Grid.Row="1"
            Grid.RowSpan="4"
            Grid.Column="0"
-           Grid.ColumnSpan="3"
-    >
-            <ScrollView>
-                <StackLayout>
-                    <BoxView BackgroundColor="Transparent" HeightRequest="600" WidthRequest="150" />
-                    <Entry />
-                </StackLayout>
-            </ScrollView>
+           Grid.ColumnSpan="3">
+           
+        
             <Button Text="Tables"
                 x:Name="tables"
                 Clicked="Tables_Clicked"
                 BackgroundColor="#24BF87"
                 TextColor="White"
+                    FontSize="40"
+                    HeightRequest="75"
                 />
    </StackLayout>
 </Grid>

@@ -76,6 +76,21 @@
               x:Name="pWord" IsPassword="True" Placeholder="   Password   "
               PlaceholderColor="White" BackgroundColor="Black"
               TextColor="White"/>
+            <Picker
+                x:Name="tableSelector"
+                Title="Select Section"
+                BackgroundColor="Black"
+                TextColor="White"
+                HorizontalOptions="Center"
+               SelectedIndex="1">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Tables 1-10</x:String>
+                        <x:String>Tables 11-20</x:String>
+
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
         </StackLayout>
         <StackLayout
             HorizontalOptions="FillAndExpand"
