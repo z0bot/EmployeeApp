@@ -29,6 +29,7 @@ namespace EmployeeApp.Models.ServiceRequests
        
         public static async Task<bool> SendGetTableRequest(int tableNum)
         {
+            RealmManager.RemoveAll<Order>();
             //make a new request object
             var serviceRequest = new GetTableRequest(tableNum);
             //get a response
@@ -41,9 +42,22 @@ namespace EmployeeApp.Models.ServiceRequests
             }
             else
             {
+                Order newOrder = new Order();
+                RealmManager.RemoveAll<Order>();
                 RealmManager.RemoveAll<Table>();
                 //add the response into the local database
                 RealmManager.AddOrUpdate<Table>(response);
+                newOrder = RealmManager.All<Table>().FirstOrDefault().order_id;
+                Random rand = new Random();
+                for (int i = 0; i < ((Order)newOrder).menuItems.Count(); ++i)
+                {
+                    ((Order)newOrder).menuItems[i].newID = rand.Next(0, 1000000000).ToString();
+                    while (RealmManager.Find<OrderItem>((((Order)newOrder).menuItems[i].newID)) != null)
+                    {
+                        ((Order)newOrder).menuItems[i].newID = rand.Next(0, 1000000000).ToString();
+                    }
+                }
+                RealmManager.AddOrUpdate<Order>(newOrder); 
 
                 //call succeeded
                 return true;

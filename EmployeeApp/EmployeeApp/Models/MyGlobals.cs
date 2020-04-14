@@ -7,5 +7,7 @@ namespace EmployeeApp.Models
     public static class MyGlobals
     {
         public static int MySection;
+
+        public static int workingTable;
     }
 }

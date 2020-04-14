@@ -63,6 +63,7 @@ namespace EmployeeApp.Pages
                     btn.BackgroundColor = Color.FromHex("#24BF87");
                 }
                 int tblNum = newTable[i].table_number;
+               
                 btn.Clicked += delegate (object sender, EventArgs e) { OnTableClicked(sender, e, tblNum); };
                 TableButts.Children.Add(btn);
             }
@@ -74,6 +75,7 @@ namespace EmployeeApp.Pages
         async private void OnTableClicked(object sender, EventArgs e, int tblNum)
         {
             //do you stuff upon is
+            MyGlobals.workingTable = tblNum;
             var getTable = await GetTableRequest.SendGetTableRequest(tblNum);
             await Navigation.PushAsync(new YourOrderPage());
 

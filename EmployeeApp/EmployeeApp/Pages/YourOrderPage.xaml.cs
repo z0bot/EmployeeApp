@@ -170,17 +170,20 @@ namespace EmployeeApp.Pages
         /// <returns></returns>
         public async Task DisplayOrder()
         {
-            string orderid = RealmManager.All<Table>().FirstOrDefault().order_id._id;
-            int tableid = RealmManager.All<Table>().FirstOrDefault().table_number;
-            // Fetch most recent version of the order
-            //RealmManager.RemoveAll<Order>();
-            await GetTableRequest.SendGetTableRequest(tableid);
-           // await GetOrderRequest.SendGetOrderRequest(orderid);
             
             
-            menuFoodItemsView.ItemsSource = RealmManager.All<Table>().FirstOrDefault().order_id.menuItems.ToList();
+           //await GetOrderRequest.SendGetOrderRequest(RealmManager.All<Order>().FirstOrDefault()._id);
 
-            if (RealmManager.All<Table>().FirstOrDefault().order_id.send_to_kitchen)
+            // Fetch most recent version of the order
+
+            //await GetOrderRequest.SendGetOrderRequest(RealmManager.All<Table>().FirstOrDefault().order_id._id);
+
+            await GetTableRequest.SendGetTableRequest(MyGlobals.workingTable);
+
+
+            menuFoodItemsView.ItemsSource = RealmManager.All<Order>().FirstOrDefault().menuItems.ToList();
+
+            if (RealmManager.All<Order>().FirstOrDefault().send_to_kitchen)
             {
                 // Reset button
                 sendOrderButton.Clicked -= OnSendOrderClicked;
