@@ -86,14 +86,14 @@ namespace EmployeeApp.Pages
         }
 
 
-        async void OnRefillButtonClicked(object sender, EventArgs e)
+        async void OnAlertButtonClicked(object sender, EventArgs e)
         {
-          
+            await Navigation.PushAsync(new alertPage());
         }
 
-        async void OnServerButtonClicked(object sender, EventArgs e)
+        async void OnTableButtonClicked(object sender, EventArgs e)
         {
-           
+            await Navigation.PushAsync(new TablePage());
         }
     }
 }

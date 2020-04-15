@@ -38,17 +38,16 @@ namespace EmployeeApp.Pages
             if (await DisplayAlert("WARNING: Sending Order", "Are you sure you want to send the order? Current items cannot be changed by anyone at the table.", "Yes", "No"))
             {
                 // Set order status to 'sent'
-                //RealmManager.Write(() => RealmManager.All<Order>().FirstOrDefault().send_to_kitchen = true);
                 await SendOrderRequest.SendSendOrderRequest(RealmManager.All<Order>().FirstOrDefault()._id);
 
-                await Navigation.PushAsync(new checkoutPage());
+                await Navigation.PushAsync(new YourOrderPage());
             }
         }
 
         // Replaces send order button after order is sent
         async void OnPayClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new checkoutPage());
+            await DisplayAlert("All Items Sent", "All items have already been sent to the kitchen", "Ok");
         }
 
         async void OnAddItemClicked(object sender, EventArgs e)
@@ -58,15 +57,17 @@ namespace EmployeeApp.Pages
             await Navigation.PushAsync(new menuPage());
         }
 
-        async void OnRefillButtonClicked(object sender, EventArgs e)
+        async void OnTableButtonClicked(object sender, EventArgs e)
         {
-            // Send refill request
-          
+            await Navigation.PushAsync(new TablePage());
+
+
         }
 
-        async void OnServerButtonClicked(object sender, EventArgs e)
+        async void OnAlertButtonClicked(object sender, EventArgs e)
         {
-            
+            await Navigation.PushAsync(new alertPage());
+
         }
 
         /// <summary>
@@ -127,8 +128,37 @@ namespace EmployeeApp.Pages
             // Don't allow removal of sent items. Might change this to check if the item is prepared later
             if (RealmManager.All<Order>().FirstOrDefault().send_to_kitchen)
             {
-                await DisplayAlert("Option Unavailable", "Sorry, but this option is not available since the order has already been sent", "OK");
-                return;
+                Order myOrder = new Order();
+                OrderItem myItem = new OrderItem();
+                bool select = await DisplayAlert("Are You Sure?", "The order has already been sent, this will be a void", "Yes", "No");
+                if (select)
+                {
+                    
+                   string reason = await DisplayPromptAsync("Reson For Void", "Why are you voiding this item?", "OK", "Cancel", null, -1, keyboard: Keyboard.Plain, item.special_instruct);
+                    var resp = AddCompRequest.SendAddCompRequest(reason, item._id, RealmManager.All<Employee>().FirstOrDefault()._id);
+                    myOrder = RealmManager.All<Order>().FirstOrDefault();
+                    for (int i = 0; i < myOrder.menuItems.Count(); i++)
+                    {
+                        if (myOrder.menuItems[i]._id == item._id)
+                        {
+                            RealmManager.Write(() =>
+                            {
+                                myOrder.menuItems[i].paid = true;
+                            });
+
+                            await Task.Delay(50);
+                        }
+                    }
+
+                    await Task.Delay(50);
+                    var respo = UpdateOrderMenuItemsRequest.SendUpdateOrderMenuItemsRequest(myOrder._id, RealmManager.All<Order>().FirstOrDefault().menuItems);
+                    
+                    return;
+                }
+                else
+                {
+                    return;
+                }
             }
 
             OrderItem preUpdateItem = RealmManager.All<Order>().FirstOrDefault().menuItems.Where((OrderItem o) => o.special_instruct == item.special_instruct && o._id == item._id).FirstOrDefault();
@@ -169,10 +199,6 @@ namespace EmployeeApp.Pages
 
             // Fetch most recent version of the order
 
-            //await GetOrderRequest.SendGetOrderRequest(RealmManager.All<Table>().FirstOrDefault().order_id._id);
-
-            //  await GetTableRequest.SendGetTableRequest(MyGlobals.workingTable);
-
             var ihatethis = new List<OrderItem>();
             ihatethis = RealmManager.All<Order>().FirstOrDefault().menuItems.ToList();
 
@@ -180,12 +206,10 @@ namespace EmployeeApp.Pages
 
             if (RealmManager.All<Order>().FirstOrDefault().send_to_kitchen)
             {
-                // Reset button
                 sendOrderButton.Clicked -= OnSendOrderClicked;
-                sendOrderButton.Clicked -= OnPayClicked;
+
                 // Add new functionality
-                sendOrderButton.Clicked += OnPayClicked;
-                sendOrderButton.Text = "Payment";
+                sendOrderButton.Clicked += OnPayClicked;             
             }
         }
     }

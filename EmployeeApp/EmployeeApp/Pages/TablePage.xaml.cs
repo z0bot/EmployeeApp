@@ -93,7 +93,7 @@ namespace EmployeeApp.Pages
                 myList = RealmManager.All<TableList>().FirstOrDefault().tables.ToList();
                 for (int i = 0; i < 10; i++)
                 {
-                    var sent = await SendUserToTable.SendUserRequest(myList[i]._id, null);
+                    var sent = await SendUserToTable.SendUserRequest(myList[i]._id, "5e96358aa7e308000416cf0b");
                 }
                 await Navigation.PushAsync(new MainPage());
             }

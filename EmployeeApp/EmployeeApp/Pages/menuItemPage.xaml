@@ -17,41 +17,20 @@
                 FontAttributes="Bold"
                 Margin="15,15,0,15"
                 Text="NAME"/>
-
-            <StackLayout
+            <ScrollView>
+                <StackLayout
                 HorizontalOptions="Center">
 
-                <StackLayout
-                    Orientation="Horizontal"
-                    Margin="30,0,30,0">
-                    <Image
-                        x:Name="itemPic"
-                        WidthRequest="260"
-                        HeightRequest="300"
-                        HorizontalOptions="Center"/>
 
-                    <ImageButton
-                        x:Name="nutritionButton"
-                        Source="detailsIcon"
-                        HeightRequest="60"
-                        WidthRequest="50"
-                        Clicked="OnNutritionButtonClicked"
-                        BackgroundColor="Transparent"
-                        
-                        HorizontalOptions="EndAndExpand"
-                        VerticalOptions="Center"
-                        />
-                </StackLayout>
-                
-                <Label
+                    <Label
                     Margin="30,0,30,0"
                     TextColor="Black"
                     FontSize="Medium"
                     TextDecorations="Underline"
                     FontAttributes="Bold"
                     Text="Description"/>
-                
-                <Label
+
+                    <Label
                     Margin="30,0,30,0"
                     x:Name="descLabel"
                     TextColor="Black"
@@ -60,7 +39,7 @@
                     Text="Description Goes Here"
                     LineBreakMode="WordWrap"/>
 
-                <Label
+                    <Label
                     Margin="30,0,30,0"
                     x:Name="priceLabel"
                     TextColor="Black"
@@ -68,8 +47,8 @@
                     FontAttributes="Bold"
                     Text="price"/>
 
-            </StackLayout>
-
+                </StackLayout>
+            </ScrollView>
 
             <!--Stacklayout storing control options, including refill/help buttons-->
             <StackLayout
@@ -90,19 +69,19 @@
                             VerticalOptions="EndAndExpand"
                             HorizontalOptions="StartAndExpand">
                         <Label
-                                Text="Refill"
+                                Text="Alerts"
                                 HorizontalTextAlignment="Center"
                                 FontAttributes="Bold"
                                 TextColor="Black"
-                                BackgroundColor="White"/>
+                                BackgroundColor="Transparent"/>
                         <ImageButton
                                 x:Name="refillButton"
                                 CornerRadius="15"
-                                Source="plusButton"
+                                Source="alert.png"
                                 BackgroundColor="Transparent"
                                 WidthRequest="70"
                                 HeightRequest="70"
-                                Clicked="OnRefillButtonClicked"/>
+                                Clicked="OnAlertButtonClicked"/>
                     </StackLayout>
 
                     <!--Stack layout for add item to order and add special instructions buttons-->
@@ -132,7 +111,7 @@
                             TextColor="White"
                             WidthRequest="140"
                             BackgroundColor="#1fbd85"
-                            FontSize="Medium"
+                            FontSize="15"
                             CornerRadius="15"
                             Clicked="OnAddInstructionsClicked" 
                             />
@@ -145,19 +124,19 @@
                             VerticalOptions="EndAndExpand"
                             HorizontalOptions="EndAndExpand">
                         <Label
-                                Text="Call Server"
+                                Text="Tables"
                                 HorizontalTextAlignment="Center"
                                 FontAttributes="Bold"
                                 TextColor="Black"
-                                BackgroundColor="White"/>
+                                BackgroundColor="Transparent"/>
                         <ImageButton
                                 x:Name="serverButton"
                                 CornerRadius="15"
                                 BackgroundColor="Transparent"
                                 WidthRequest="70"
                                 HeightRequest="70"
-                                Source="plusButton"
-                                Clicked="OnServerButtonClicked"/>
+                                Source="tableStack.png"
+                                Clicked="OnTableButtonClicked"/>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>

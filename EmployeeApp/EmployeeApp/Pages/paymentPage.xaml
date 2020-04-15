@@ -75,7 +75,7 @@
                             VerticalOptions="EndAndExpand"
                             HorizontalOptions="StartAndExpand">
                     <Label
-                                Text="Refill"
+                                Text="Alerts"
                                 HorizontalTextAlignment="Center"
                                 FontAttributes="Bold"
                                 TextColor="Black"/>
@@ -86,7 +86,7 @@
                                 BackgroundColor="Transparent"
                                 WidthRequest="70"
                                 HeightRequest="70"
-                                Clicked="OnRefillButtonClicked"/>
+                                Clicked="OnAlertButtonClicked"/>
                 </StackLayout>
 
 

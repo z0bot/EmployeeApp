@@ -43,7 +43,6 @@ namespace EmployeeApp.Pages
             // Update labels
             nameLabel.Text = baseItem.name;
             descLabel.Text = baseItem.description;
-            itemPic.Source = baseItem.picture;
             priceLabel.Text = baseItem.StringPrice;
             item.special_instruct = null;
         }
@@ -105,16 +104,14 @@ namespace EmployeeApp.Pages
             await Navigation.PopAsync();
         }
 
-        async void OnRefillButtonClicked(object sender, EventArgs e)
+        async void OnAlertButtonClicked(object sender, EventArgs e)
         {
-            // Send refill request
-            
+            await Navigation.PushAsync(new alertPage());
         }
 
-        async void OnServerButtonClicked(object sender, EventArgs e)
+        async void OnTableButtonClicked(object sender, EventArgs e)
         {
-            // Send Help Request
-         
+            await Navigation.PushAsync(new TablePage());
         }
     }
 }
