@@ -114,7 +114,7 @@ namespace EmployeeApp.Pages
             }
         }
 
-        async void OnRefillButtonClicked(object sender, EventArgs e)
+        async void OnAlertButtonClicked(object sender, EventArgs e)
         {
             // Send refill request
            

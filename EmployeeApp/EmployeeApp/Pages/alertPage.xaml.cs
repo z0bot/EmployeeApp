@@ -59,17 +59,29 @@ namespace EmployeeApp.Pages
                 {
                     btn.BackgroundColor = Color.FromHex("#4bc1db");
                 }
-                btn.Clicked += OnAlertClicked;
+                // btn.Clicked += OnAlertClicked;
+                string notifId = newList[i]._id;
+                btn.Clicked += delegate (object sender, EventArgs e) { OnAlertClicked(sender, e, notifId); };
                 AlertButts.Children.Add(btn);
             }
         }
 
-        async private void OnAlertClicked(object sender, EventArgs e)
+        async private void OnAlertClicked(object sender, EventArgs e, string notifId)
         {
              Button alertMessage = (Button)sender;
                 //do you stuff upon is
-                await DisplayAlert("Notification", alertMessage.Text, "Ok");
+              bool result1 =  await DisplayAlert(alertMessage.Text, "Remove this Notification?", "Remove Notication", "Keep Notification");
+            if(result1 == true)
+            {
+                var weGood = RemoveNotification.SendRemoveNotification(notifId);
+               await Navigation.PushAsync(new alertPage());         
+
+
+            }
+
         }
+
+
 
         void Tables_Clicked(System.Object sender, System.EventArgs e)
         {
@@ -88,7 +100,7 @@ namespace EmployeeApp.Pages
                 myList = RealmManager.All<TableList>().FirstOrDefault().tables.ToList();
                 for (int i = 0; i < 10; i++)
                 {
-                    var sent = await SendUserToTable.SendUserRequest(myList[i]._id, null);
+                    var sent = await SendUserToTable.SendUserRequest(myList[i]._id, "5e96358aa7e308000416cf0b");
                 }
                 await Navigation.PushAsync(new MainPage());
             }

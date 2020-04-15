@@ -128,7 +128,7 @@ namespace EmployeeApp.Pages
             await Navigation.PopAsync();
         }
 
-        async void OnRefillButtonClicked(object sender, EventArgs e)
+        async void OnAlertButtonClicked(object sender, EventArgs e)
         {
            
         }
