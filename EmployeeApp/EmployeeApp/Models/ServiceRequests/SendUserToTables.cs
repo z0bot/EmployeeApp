@@ -13,20 +13,20 @@ namespace EmployeeApp.Models.ServiceRequests
         public override HttpMethod Method => HttpMethod.Put;
         public IList<UpdateTablesWithUser> Body;
 
-        public SendUserToTable(string tableId, string empId)
+        public SendUserToTable(string[] tableId, string empId)
         {
-            Url = "https://dijkstras-steakhouse-restapi.herokuapp.com/tables/" + tableId;
+            Url = "https://dijkstras-steakhouse-restapi.herokuapp.com/employees/" + empId;
 
             UpdateTablesWithUser updateIngredientRequestObject = new UpdateTablesWithUser
             {
-                propName = "employee_id",
-                value = empId,
+                propName = "tables",
+                value = tableId,
             };
             Body = new List<UpdateTablesWithUser>();
             Body.Add(updateIngredientRequestObject);
         }
 
-        public static async Task<bool> SendUserRequest(string tableId, string EmpId)
+        public static async Task<bool> SendUserRequest(string[] tableId, string EmpId)
         {
             var senduser = new SendUserToTable(tableId, EmpId );
             var response = await ServiceRequestHandler.MakeServiceCall<DeleteResponse>(senduser, senduser.Body);
@@ -45,6 +45,6 @@ namespace EmployeeApp.Models.ServiceRequests
     public class UpdateTablesWithUser
     {
         public string propName { get; set; }
-        public string value { get; set; }
+        public string[] value { get; set; }
     }
 }
