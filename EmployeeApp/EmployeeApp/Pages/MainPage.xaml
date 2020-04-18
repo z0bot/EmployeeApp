@@ -67,13 +67,13 @@
             <Entry
              HorizontalOptions="Center"
             HorizontalTextAlignment="Center"
-            x:Name="uName" Placeholder="  User Name  "
+            x:Name="uName" Placeholder="   User Name   "
             PlaceholderColor="White" BackgroundColor="Black"
             TextColor="White"/>
             <Entry
               HorizontalOptions="Center"
             HorizontalTextAlignment="Center"
-              x:Name="pWord" IsPassword="True" Placeholder="   Password   "
+              x:Name="pWord" IsPassword="True" Placeholder="    Password    "
               PlaceholderColor="White" BackgroundColor="Black"
               TextColor="White"/>
             <Picker
@@ -84,7 +84,8 @@
                 HorizontalOptions="Center"
                SelectedIndex="1">
                 <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
+                    <x:Array Type="{x:Type x:String}"
+                             >
                         <x:String>Tables 1-10</x:String>
                         <x:String>Tables 11-20</x:String>
 

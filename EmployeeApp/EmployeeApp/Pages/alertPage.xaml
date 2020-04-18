@@ -8,22 +8,22 @@
              BackgroundColor="Black"
              NavigationPage.HasNavigationBar="false"
              BackgroundImageSource="bgApp.png">
-   <Grid>
-    <Grid.RowDefinitions>
-        <RowDefinition Height="*"/>
-        
-        <RowDefinition Height="*"/>
-        <RowDefinition Height="*"/>
-        <RowDefinition Height="*"/>
-        <RowDefinition Height="*"/>
-       
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*"/>
-        <ColumnDefinition Width="*"/>
-        <ColumnDefinition Width="*"/>
-    </Grid.ColumnDefinitions>
-       <StackLayout
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackLayout
            Grid.Row="0"
            Grid.RowSpan="1"
            Grid.Column="0"
@@ -31,21 +31,22 @@
             <Frame
                     Margin="0,0,0,0"
                     BackgroundColor="White">
-                    <Frame.Content>
-                        <StackLayout>
-                            <Label
+                <Frame.Content>
+                    <StackLayout
+                        >
+                        <Label
                                 
                                 LineBreakMode="WordWrap"
                                 FontSize="40"
                                 HorizontalTextAlignment="Center"
                                 
                                 Text="Alerts"/>
-                           
-                        </StackLayout>
-                   
-                    </Frame.Content> 
-                </Frame>
-            
+
+                    </StackLayout>
+
+                </Frame.Content>
+            </Frame>
+
         </StackLayout>
         <StackLayout
                             Grid.Row="0"
@@ -59,11 +60,10 @@
                                 Clicked="LogOut_Clicked"
                                 BackgroundColor="red"
                                 TextColor="White">
-              
+
             </Button>
 
         </StackLayout>
-
         <StackLayout
            HorizontalOptions="Center"
             VerticalOptions="Start"
@@ -72,19 +72,16 @@
            Grid.Column="0"
            Grid.ColumnSpan="3">
 
-            <ScrollView >
-                <StackLayout x:Name="AlertButts"/>
-            </ScrollView>
+                <ScrollView>
+                    <StackLayout x:Name="AlertButts"/>
+                </ScrollView>
 
 
 
-
-        </StackLayout>
-
+            </StackLayout>
 
 
-
-        <StackLayout
+            <StackLayout
             HorizontalOptions="FillAndExpand"
         VerticalOptions="End"
            Grid.Row="1"
@@ -98,8 +95,8 @@
                 Clicked="Tables_Clicked"
                 BackgroundColor="#24BF87"
                 TextColor="White"
-                    FontSize="40"
-                    HeightRequest="75"
+                    FontSize="25"
+                    HeightRequest="50"
                 />
    </StackLayout>
 </Grid>

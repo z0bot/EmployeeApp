@@ -9,7 +9,7 @@ namespace EmployeeApp.Models
 {
      class Employee : RealmObject
     {
-        public IList<Table> tables { get; }
+        public IList<string> tables { get; }
         [PrimaryKey]
         public string _id { get; set; }
         public string first_name { get; set; }
