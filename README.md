@@ -6,8 +6,8 @@ Some dialog boxes may appear you need to click continue to install.
 
 To sign-in to the app you can either use the admin username and password which is
 
-UserName = bc
-Password = bc
+UserName = test
+Password = test
 
 Or you will have to create a new username and password for employees inside the manager application.
 
