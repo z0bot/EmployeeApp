@@ -1,7 +1,7 @@
 # EmployeeApp
 Employee App ReadMe
 
-First Download and install the APK to an android phone with android 9.0 or later.
+First Download and install the APK to an Android phone with Android 9.0 or later.
 Some dialog boxes may appear you need to click continue to install.
 
 To sign-in to the app you can either use the admin username and password which is
