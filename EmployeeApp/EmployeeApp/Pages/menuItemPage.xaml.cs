@@ -44,6 +44,24 @@ namespace EmployeeApp.Pages
             nameLabel.Text = baseItem.name;
             descLabel.Text = baseItem.description;
             priceLabel.Text = baseItem.StringPrice;
+
+            try
+            {
+                if (baseItem.picture.Contains(',')) // Old images which contain commas
+                {
+                    itemPic.Source = ImageSource.FromStream(() => new System.IO.MemoryStream(Convert.FromBase64String((baseItem.picture.Split(',')[1]))));
+                }
+                else // New images without commas
+                {
+                    itemPic.Source = ImageSource.FromStream(() => new System.IO.MemoryStream(Convert.FromBase64String((baseItem.picture))));
+                }
+            }
+            catch (Exception ex)
+            {
+                // Can't do anything about this tbqh
+                System.Diagnostics.Debug.WriteLine("Invalid picture. Message: " + ex.Message);
+            }
+
             item.special_instruct = null;
         }
 

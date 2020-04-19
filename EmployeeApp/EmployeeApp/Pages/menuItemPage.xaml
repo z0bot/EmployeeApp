@@ -17,12 +17,33 @@
                 FontAttributes="Bold"
                 Margin="15,15,0,15"
                 Text="NAME"/>
-            <ScrollView>
-                <StackLayout
+
+            <StackLayout
                 HorizontalOptions="Center">
 
+                <StackLayout
+                    Orientation="Horizontal"
+                    Margin="30,0,30,0">
+                    <Image
+                        x:Name="itemPic"
+                        WidthRequest="260"
+                        HeightRequest="300"
+                        HorizontalOptions="Center"
+                        Source="GoodFood"/>
 
-                    <Label
+                    <ImageButton
+                        x:Name="nutritionButton"
+                        Source="detailsIcon"
+                        HeightRequest="60"
+                        WidthRequest="50"
+                        Clicked="OnNutritionButtonClicked"
+                        BackgroundColor="Transparent"
+                        
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="Center"/>
+                </StackLayout>
+
+                <Label
                     Margin="30,0,30,0"
                     TextColor="Black"
                     FontSize="Medium"
@@ -30,16 +51,16 @@
                     FontAttributes="Bold"
                     Text="Description"/>
 
-                    <Label
+                <Label
                     Margin="30,0,30,0"
                     x:Name="descLabel"
                     TextColor="Black"
-                    FontSize="Medium"
+                    FontSize="Small"
                     FontAttributes="Bold"
                     Text="Description Goes Here"
                     LineBreakMode="WordWrap"/>
 
-                    <Label
+                <Label
                     Margin="30,0,30,0"
                     x:Name="priceLabel"
                     TextColor="Black"
@@ -47,8 +68,8 @@
                     FontAttributes="Bold"
                     Text="price"/>
 
-                </StackLayout>
-            </ScrollView>
+            </StackLayout>
+
 
             <!--Stacklayout storing control options, including refill/help buttons-->
             <StackLayout
